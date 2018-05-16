@@ -88,55 +88,55 @@ var event = function(freq, msg) {
 }
 var weatherTable = {
   Dry: [
-    event(12, 'Misty - A low mist hangs in the air that limits vision to a maximum of 150 ft. for everything of large size and smaller. Any such target is assumed to have total cover while anything huge or larger past this range is considered to have three-quarters cover. Any Survival(wisdom) check made to navigate through the mist has disadvantage.'),
-    event(6, 'Heavy Mist - A thick almost tangible mist drowns out any vision past 15ft. for everything large and smaller, with anything huge or larger only being visible up to 30ft. away. All sight based abilities outside of the 15ft. range are at disadvantage and all creatures and objects outside of that range are assumed to have total cover. This disadvantage cannot be negated and also applies to navigation unless the DM specifically allows you to.'),
-    event(25, 'Dry and Sunny - These days are rare and should be enjoyed.'),
-    event(25, 'Sunny with Rain Showers - Smaller localised rain clouds fill the skies, leaving the days filled both with rain and rainbows. There will be a 1 in 3 chance of it currently being dry on the character’s position.'),
-    event(20, 'Rainy - A sheet of rain falls over the land, creating a damp but slightly cosy atmosphere while walking under the massive trees of the jungle. Though the humidity rises most places within the jungle are still relatively dry due to the thick canopy catching most of the rain.'),
-    event(5, 'Heavy Rain - Rain and wind tear at the trees and pour down on any poor adventurer out to test their luck. Any Wisdom(perception) checks beyond 150ft. become blurred and are at disadvantage except for anything that’s huge or larger. Any creature outside of this range that is large or smaller gains the benefits of three-quarters cover and missile weapons ranges are halved.'),
-    event(2, 'Tropical Storm - The sky darkens as lighting, rain and mayhem rain down from above while the wind tears the trees away from the earth itself. Rivers swell and rage through the jungle, preventing any form of travel by boat. Any guide worth their salt knows that the best choice is to hunker down and wait out the storm, but there are always those foolish enough to think they can test mother nature. Anyone braving the storm immediately gains a level of exhaustion and must make a DC 10 Constitution saving throw at the end of the day to prevent weariness from setting in. On top of the attributes of “Heavy Rain” all characters are also at disadvantage for making Wisdom(survival) checks to navigate.'),
-    event(2, 'Extremely Warm and Rainy - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion.'),
-    event(2, 'Extremely Warm and Dry - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion. Characters will need to actively prevent being dehydrated throughout the day.')
+    event(12, "Misty - A low mist hangs in the air that limits vision to a maximum of 150 ft. for everything of large size and smaller. Any such target is assumed to have total cover while anything huge or larger past this range is considered to have three-quarters cover. Any Survival(wisdom) check made to navigate through the mist has disadvantage."),
+    event(6, "Heavy Mist - A thick almost tangible mist drowns out any vision past 15ft. for everything large and smaller, with anything huge or larger only being visible up to 30ft. away. All sight based abilities outside of the 15ft. range are at disadvantage and all creatures and objects outside of that range are assumed to have total cover. This disadvantage cannot be negated and also applies to navigation unless the DM specifically allows you to."),
+    event(25, "Dry and Sunny - These days are rare and should be enjoyed."),
+    event(25, "Sunny with Rain Showers - Smaller localised rain clouds fill the skies, leaving the days filled both with rain and rainbows. There will be a 1 in 3 chance of it currently being dry on the character’s position."),
+    event(20, "Rainy - A sheet of rain falls over the land, creating a damp but slightly cosy atmosphere while walking under the massive trees of the jungle. Though the humidity rises most places within the jungle are still relatively dry due to the thick canopy catching most of the rain."),
+    event(5, "Heavy Rain - Rain and wind tear at the trees and pour down on any poor adventurer out to test their luck. Any Wisdom(perception) checks beyond 150ft. become blurred and are at disadvantage except for anything that’s huge or larger. Any creature outside of this range that is large or smaller gains the benefits of three-quarters cover and missile weapons ranges are halved."),
+    event(2, "Tropical Storm - The sky darkens as lighting, rain and mayhem rain down from above while the wind tears the trees away from the earth itself. Rivers swell and rage through the jungle, preventing any form of travel by boat. Any guide worth their salt knows that the best choice is to hunker down and wait out the storm, but there are always those foolish enough to think they can test mother nature. Anyone braving the storm immediately gains a level of exhaustion and must make a DC 10 Constitution saving throw at the end of the day to prevent weariness from setting in. On top of the attributes of “Heavy Rain” all characters are also at disadvantage for making Wisdom(survival) checks to navigate."),
+    event(2, "Extremely Warm and Rainy - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion."),
+    event(2, "Extremely Warm and Dry - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion. Characters will need to actively prevent being dehydrated throughout the day.")
   ],
   Rainy: [
-    event(12, 'Misty - A low mist hangs in the air that limits vision to a maximum of 150 ft. for everything of large size and smaller. Any such target is assumed to have total cover while anything huge or larger past this range is considered to have three-quarters cover. Any Survival(wisdom) check made to navigate through the mist has disadvantage.'),
-    event(6, 'Heavy Mist - A thick almost tangible mist drowns out any vision past 15ft. for everything large and smaller, with anything huge or larger only being visible up to 30ft. away. All sight based abilities outside of the 15ft. range are at disadvantage and all creatures and objects outside of that range are assumed to have total cover. This disadvantage cannot be negated and also applies to navigation unless the DM specifically allows you to.'),
-    event(25, 'Dry and Sunny - These days are rare and should be enjoyed.'),
-    event(25, 'Sunny with Rain Showers - Smaller localised rain clouds fill the skies, leaving the days filled both with rain and rainbows. There will be a 1 in 3 chance of it currently being dry on the character’s position.'),
-    event(20, 'Rainy - A sheet of rain falls over the land, creating a damp but slightly cosy atmosphere while walking under the massive trees of the jungle. Though the humidity rises most places within the jungle are still relatively dry due to the thick canopy catching most of the rain.'),
-    event(5, 'Heavy Rain - Rain and wind tear at the trees and pour down on any poor adventurer out to test their luck. Any Wisdom(perception) checks beyond 150ft. become blurred and are at disadvantage except for anything that’s huge or larger. Any creature outside of this range that is large or smaller gains the benefits of three-quarters cover and missile weapons ranges are halved.'),
-    event(2, 'Tropical Storm - The sky darkens as lighting, rain and mayhem rain down from above while the wind tears the trees away from the earth itself. Rivers swell and rage through the jungle, preventing any form of travel by boat. Any guide worth their salt knows that the best choice is to hunker down and wait out the storm, but there are always those foolish enough to think they can test mother nature. Anyone braving the storm immediately gains a level of exhaustion and must make a DC 10 Constitution saving throw at the end of the day to prevent weariness from setting in. On top of the attributes of “Heavy Rain” all characters are also at disadvantage for making Wisdom(survival) checks to navigate.'),
-    event(2, 'Extremely Warm and Rainy - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion.'),
-    event(2, 'Extremely Warm and Dry - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion. Characters will need to actively prevent being dehydrated throughout the day.')
-    event(2, 'Monsoon Shift - Occasionally a large period of rain and storm falls over the land, making dry days a distant dream for most adventurers and explorers. Once a “Monsoon Shift” comes up on the tables switch over to the monsoon part of the table or, if you are already on the monsoon table, move back onto the regular table.')
+    event(12, "Misty - A low mist hangs in the air that limits vision to a maximum of 150 ft. for everything of large size and smaller. Any such target is assumed to have total cover while anything huge or larger past this range is considered to have three-quarters cover. Any Survival(wisdom) check made to navigate through the mist has disadvantage."),
+    event(6, "Heavy Mist - A thick almost tangible mist drowns out any vision past 15ft. for everything large and smaller, with anything huge or larger only being visible up to 30ft. away. All sight based abilities outside of the 15ft. range are at disadvantage and all creatures and objects outside of that range are assumed to have total cover. This disadvantage cannot be negated and also applies to navigation unless the DM specifically allows you to."),
+    event(25, "Dry and Sunny - These days are rare and should be enjoyed."),
+    event(25, "Sunny with Rain Showers - Smaller localised rain clouds fill the skies, leaving the days filled both with rain and rainbows. There will be a 1 in 3 chance of it currently being dry on the character’s position."),
+    event(20, "Rainy - A sheet of rain falls over the land, creating a damp but slightly cosy atmosphere while walking under the massive trees of the jungle. Though the humidity rises most places within the jungle are still relatively dry due to the thick canopy catching most of the rain."),
+    event(5, "Heavy Rain - Rain and wind tear at the trees and pour down on any poor adventurer out to test their luck. Any Wisdom(perception) checks beyond 150ft. become blurred and are at disadvantage except for anything that’s huge or larger. Any creature outside of this range that is large or smaller gains the benefits of three-quarters cover and missile weapons ranges are halved."),
+    event(2, "Tropical Storm - The sky darkens as lighting, rain and mayhem rain down from above while the wind tears the trees away from the earth itself. Rivers swell and rage through the jungle, preventing any form of travel by boat. Any guide worth their salt knows that the best choice is to hunker down and wait out the storm, but there are always those foolish enough to think they can test mother nature. Anyone braving the storm immediately gains a level of exhaustion and must make a DC 10 Constitution saving throw at the end of the day to prevent weariness from setting in. On top of the attributes of “Heavy Rain” all characters are also at disadvantage for making Wisdom(survival) checks to navigate."),
+    event(2, "Extremely Warm and Rainy - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion."),
+    event(2, "Extremely Warm and Dry - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion. Characters will need to actively prevent being dehydrated throughout the day.")
+    event(2, "Monsoon Shift - Occasionally a large period of rain and storm falls over the land, making dry days a distant dream for most adventurers and explorers. Once a “Monsoon Shift” comes up on the tables switch over to the monsoon part of the table or, if you are already on the monsoon table, move back onto the regular table.")
   ],
   Monsoon: [
-    event(4, 'Misty - A low mist hangs in the air that limits vision to a maximum of 150 ft. for everything of large size and smaller. Any such target is assumed to have total cover while anything huge or larger past this range is considered to have three-quarters cover. Any Survival(wisdom) check made to navigate through the mist has disadvantage.'),
-    event(8, 'Heavy Mist - A thick almost tangible mist drowns out any vision past 15ft. for everything large and smaller, with anything huge or larger only being visible up to 30ft. away. All sight based abilities outside of the 15ft. range are at disadvantage and all creatures and objects outside of that range are assumed to have total cover. This disadvantage cannot be negated and also applies to navigation unless the DM specifically allows you to.'),
-    event(0, 'Dry and Sunny - These days are rare and should be enjoyed.'),
-    event(6, 'Sunny with Rain Showers - Smaller localised rain clouds fill the skies, leaving the days filled both with rain and rainbows. There will be a 1 in 3 chance of it currently being dry on the character’s position.'),
-    event(30, 'Rainy - A sheet of rain falls over the land, creating a damp but slightly cosy atmosphere while walking under the massive trees of the jungle. Though the humidity rises most places within the jungle are still relatively dry due to the thick canopy catching most of the rain.'),
-    event(25, 'Heavy Rain - Rain and wind tear at the trees and pour down on any poor adventurer out to test their luck. Any Wisdom(perception) checks beyond 150ft. become blurred and are at disadvantage except for anything that’s huge or larger. Any creature outside of this range that is large or smaller gains the benefits of three-quarters cover and missile weapons ranges are halved.'),
-    event(10, 'Tropical Storm - The sky darkens as lighting, rain and mayhem rain down from above while the wind tears the trees away from the earth itself. Rivers swell and rage through the jungle, preventing any form of travel by boat. Any guide worth their salt knows that the best choice is to hunker down and wait out the storm, but there are always those foolish enough to think they can test mother nature. Anyone braving the storm immediately gains a level of exhaustion and must make a DC 10 Constitution saving throw at the end of the day to prevent weariness from setting in. On top of the attributes of “Heavy Rain” all characters are also at disadvantage for making Wisdom(survival) checks to navigate.'),
-    event(2, 'Extremely Warm and Rainy - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion.'),
-    event(0, 'Extremely Warm and Dry - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion. Characters will need to actively prevent being dehydrated throughout the day.')
-    event(15, 'Monsoon Shift - Occasionally a large period of rain and storm falls over the land, making dry days a distant dream for most adventurers and explorers. Once a “Monsoon Shift” comes up on the tables switch over to the monsoon part of the table or, if you are already on the monsoon table, move back onto the regular table.')
+    event(4, "Misty - A low mist hangs in the air that limits vision to a maximum of 150 ft. for everything of large size and smaller. Any such target is assumed to have total cover while anything huge or larger past this range is considered to have three-quarters cover. Any Survival(wisdom) check made to navigate through the mist has disadvantage."),
+    event(8, "Heavy Mist - A thick almost tangible mist drowns out any vision past 15ft. for everything large and smaller, with anything huge or larger only being visible up to 30ft. away. All sight based abilities outside of the 15ft. range are at disadvantage and all creatures and objects outside of that range are assumed to have total cover. This disadvantage cannot be negated and also applies to navigation unless the DM specifically allows you to."),
+    event(0, "Dry and Sunny - These days are rare and should be enjoyed."),
+    event(6, "Sunny with Rain Showers - Smaller localised rain clouds fill the skies, leaving the days filled both with rain and rainbows. There will be a 1 in 3 chance of it currently being dry on the character’s position."),
+    event(30, "Rainy - A sheet of rain falls over the land, creating a damp but slightly cosy atmosphere while walking under the massive trees of the jungle. Though the humidity rises most places within the jungle are still relatively dry due to the thick canopy catching most of the rain."),
+    event(25, "Heavy Rain - Rain and wind tear at the trees and pour down on any poor adventurer out to test their luck. Any Wisdom(perception) checks beyond 150ft. become blurred and are at disadvantage except for anything that’s huge or larger. Any creature outside of this range that is large or smaller gains the benefits of three-quarters cover and missile weapons ranges are halved."),
+    event(10, "Tropical Storm - The sky darkens as lighting, rain and mayhem rain down from above while the wind tears the trees away from the earth itself. Rivers swell and rage through the jungle, preventing any form of travel by boat. Any guide worth their salt knows that the best choice is to hunker down and wait out the storm, but there are always those foolish enough to think they can test mother nature. Anyone braving the storm immediately gains a level of exhaustion and must make a DC 10 Constitution saving throw at the end of the day to prevent weariness from setting in. On top of the attributes of “Heavy Rain” all characters are also at disadvantage for making Wisdom(survival) checks to navigate."),
+    event(2, "Extremely Warm and Rainy - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion."),
+    event(0, "Extremely Warm and Dry - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion. Characters will need to actively prevent being dehydrated throughout the day.")
+    event(15, "Monsoon Shift - Occasionally a large period of rain and storm falls over the land, making dry days a distant dream for most adventurers and explorers. Once a “Monsoon Shift” comes up on the tables switch over to the monsoon part of the table or, if you are already on the monsoon table, move back onto the regular table.")
   ],
   Winter: [
-    event(1, 'create some weather here'),
-    event(1, 'weather line 2')
+    event(1, "create some weather here"),
+    event(1, "weather line 2")
   ],
   Spring: [
-    event(1, 'create some weather here'),
-    event(1, 'weather line 2')
+    event(1, "create some weather here"),
+    event(1, "weather line 2")
   ],
   Fall: [
-    event(1, 'create some weather here'),
-    event(1, 'weather line 2')
+    event(1, "create some weather here"),
+    event(1, "weather line 2")
   ],
   Summer: [
-    event(1, 'create some weather here'),
-    event(1, 'weather line 2')
+    event(1, "create some weather here"),
+    event(1, "weather line 2")
   ]
 }
 
@@ -192,27 +192,6 @@ on('ready', function () {
     log ('CalendarPC sheet created. Character ID is: ' + newCalendar.id);
   } else {
     log ('CalendarPC sheet already exists. Character ID is: ' + existingCalendar.id);
-    var dayAttribute = findObjs ({
-      _type: 'attribute',
-      name: 'Day',
-      _characterid: existingCalendar.id
-    }, {caseInsensitive: true}) [0];
-    var monthAttribute = findObjs ({
-      _type: 'attribute',
-      name: 'Month',
-      _characterid: existingCalendar.id
-    }, {caseInsensitive: true}) [0];
-    var yearAttribute = findObjs ({
-      _type: 'attribute',
-      name: 'Year',
-      _characterid: existingCalendar.id
-    }, {caseInsensitive: true}) [0];
-    var seasonAttribute = findObjs ({
-      _type: 'attribute',
-      name: 'Season',
-      _characterid: existingCalendar.id
-    }, {caseInsensitive: true}) [0];
-
   }
 });
 
@@ -280,7 +259,6 @@ on('chat:message', function (msg) {
     }
     var newDescription = resolve(weatherTable[currentSeason])
     descriptionAttribute.set('current', newDescription);
-    currentWeather = newDescription;
     }
   //log function for debugging in console
   function consoleWeatherLog(whatCalled) {
