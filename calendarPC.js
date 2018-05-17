@@ -311,11 +311,14 @@ on('chat:message', function (msg) {
     var checkHolidays = _.findWhere(holidayID, {'Month': currentMonth, 'Day': currentDay});
     //send it all to chat
     if (checkHolidays === undefined) {
-      sendChat('', '/direct ' + '&{template:default} {{name=' + chatTitle + '}} {{Dx=' + fullDate + '}} {{Season=' + currentSeason + '}} {{Weather=' + currentDescription + '}}');
+      sendChat('', '/direct ' + '&{template:default} {{name=' + chatTitle + '}} {{Date=' + fullDate + '}} {{Season=' + currentSeason + '}} {{Weather=' + currentDescription + '}}');
     } else {
       var currentHoliday = checkHolidays.Name;
-      sendChat('', '/direct ' + '&{template:default} {{name=' + chatTitle + '}} {{Dx=' + fullDate + '}} {{Season=' + currentSeason + '}} {{Holiday=' + currentHoliday + '}} {{Weather=' + currentDescription + '}}');
+      sendChat('', '/direct ' + '&{template:default} {{name=' + chatTitle + '}} {{Date=' + fullDate + '}} {{Season=' + currentSeason + '}} {{Holiday=' + currentHoliday + '}} {{Weather=' + currentDescription + '}}');
     }
+  }
+  function postToBio() {//post to bio so GM can share the sheet with players if he wants them to see the date.
+
   }
   //!currentWeather - send a message to chat with current date and weather
   if (msg.type == 'api' && msgTxt.indexOf ('!currentWeather') !== -1) {
