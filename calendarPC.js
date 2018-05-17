@@ -57,9 +57,9 @@ var monthID = [
   //Winter Solstice is on Nightal 20
 ];
 //number of years after which a leap year occurs
-var leapYear = 4
+var leapYear = 4;
 //id of the month that leap day occurs on
-var leapMonth = 7
+var leapMonth = 7;
 /*----------Holidays----------*/
 /*List any holidays here.
 */
@@ -85,7 +85,7 @@ var holidayID = [
 */
 var event = function(freq, msg) {
     return {message: msg, frequency: freq};
-}
+};
 var weatherTable = {
   Dry: [
     event(12, 'Misty - A low mist hangs in the air that limits vision to a maximum of 150 ft. for everything of large size and smaller. Any such target is assumed to have total cover while anything huge or larger past this range is considered to have three-quarters cover. Any Survival(wisdom) check made to navigate through the mist has disadvantage.'),
@@ -107,7 +107,7 @@ var weatherTable = {
     event(5, 'Heavy Rain - Rain and wind tear at the trees and pour down on any poor adventurer out to test their luck. Any Wisdom(perception) checks beyond 150ft. become blurred and are at disadvantage except for anything that’s huge or larger. Any creature outside of this range that is large or smaller gains the benefits of three-quarters cover and missile weapons ranges are halved.'),
     event(2, 'Tropical Storm - The sky darkens as lighting, rain and mayhem rain down from above while the wind tears the trees away from the earth itself. Rivers swell and rage through the jungle, preventing any form of travel by boat. Any guide worth their salt knows that the best choice is to hunker down and wait out the storm, but there are always those foolish enough to think they can test mother nature. Anyone braving the storm immediately gains a level of exhaustion and must make a DC 10 Constitution saving throw at the end of the day to prevent weariness from setting in. On top of the attributes of “Heavy Rain” all characters are also at disadvantage for making Wisdom(survival) checks to navigate.'),
     event(2, 'Extremely Warm and Rainy - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion.'),
-    event(2, 'Extremely Warm and Dry - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion. Characters will need to actively prevent being dehydrated throughout the day.')
+    event(2, 'Extremely Warm and Dry - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion. Characters will need to actively prevent being dehydrated throughout the day.'),
     event(2, 'Monsoon Shift - Occasionally a large period of rain and storm falls over the land, making dry days a distant dream for most adventurers and explorers. Once a “Monsoon Shift” comes up on the tables switch over to the monsoon part of the table or, if you are already on the monsoon table, move back onto the regular table.')
   ],
   Monsoon: [
@@ -119,7 +119,7 @@ var weatherTable = {
     event(25, 'Heavy Rain - Rain and wind tear at the trees and pour down on any poor adventurer out to test their luck. Any Wisdom(perception) checks beyond 150ft. become blurred and are at disadvantage except for anything that’s huge or larger. Any creature outside of this range that is large or smaller gains the benefits of three-quarters cover and missile weapons ranges are halved.'),
     event(10, 'Tropical Storm - The sky darkens as lighting, rain and mayhem rain down from above while the wind tears the trees away from the earth itself. Rivers swell and rage through the jungle, preventing any form of travel by boat. Any guide worth their salt knows that the best choice is to hunker down and wait out the storm, but there are always those foolish enough to think they can test mother nature. Anyone braving the storm immediately gains a level of exhaustion and must make a DC 10 Constitution saving throw at the end of the day to prevent weariness from setting in. On top of the attributes of “Heavy Rain” all characters are also at disadvantage for making Wisdom(survival) checks to navigate.'),
     event(2, 'Extremely Warm and Rainy - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion.'),
-    event(0, 'Extremely Warm and Dry - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion. Characters will need to actively prevent being dehydrated throughout the day.')
+    event(0, 'Extremely Warm and Dry - The heat rises to 35°C and above making movement cumbersome. Any character that decides to travel long distances during these days gets a level of exhaustion. Characters will need to actively prevent being dehydrated throughout the day.'),
     event(15, 'Monsoon Shift - Occasionally a large period of rain and storm falls over the land, making dry days a distant dream for most adventurers and explorers. Once a “Monsoon Shift” comes up on the tables switch over to the monsoon part of the table or, if you are already on the monsoon table, move back onto the regular table.')
   ],
   Winter: [
@@ -141,7 +141,7 @@ var weatherTable = {
 }
 
 /*----------Script----------*/
-// When the script is loaded, find or create CalendarPC
+// When the script is loaded, find or create CalendarPC, check to make sure the current max month and season are accurate
 on('ready', function () {
   log ('/----------Welcome to Faerûn. CalendarPC is loading...----------/');
   var existingCalendar = findObjs ({
@@ -192,19 +192,9 @@ on('ready', function () {
     log ('CalendarPC sheet created. Character ID is: ' + newCalendar.id);
   } else {
     log ('CalendarPC sheet already exists. Character ID is: ' + existingCalendar.id);
-    var dayAttribute = findObjs ({
-      _type: 'attribute',
-      name: 'Day',
-      _characterid: existingCalendar.id
-    }, {caseInsensitive: true}) [0];
     var monthAttribute = findObjs ({
       _type: 'attribute',
       name: 'Month',
-      _characterid: existingCalendar.id
-    }, {caseInsensitive: true}) [0];
-    var yearAttribute = findObjs ({
-      _type: 'attribute',
-      name: 'Year',
       _characterid: existingCalendar.id
     }, {caseInsensitive: true}) [0];
     var seasonAttribute = findObjs ({
@@ -212,7 +202,11 @@ on('ready', function () {
       name: 'Season',
       _characterid: existingCalendar.id
     }, {caseInsensitive: true}) [0];
-
+    var currentMonth = parseInt(monthAttribute.get('current'));
+    var checkMax = _.find(monthID, function (obj) { return obj.id === currentMonth;});
+    monthAttribute.set('max', checkMax.Days);
+    seasonAttribute.set('current', checkMax.Season);
+    seasonAttribute.set('max', checkMax.Name);
   }
 });
 
@@ -256,7 +250,6 @@ on('chat:message', function (msg) {
   var currentMonth = parseInt(monthAttribute.get('current'));
   var currentYear = parseInt(yearAttribute.get('current'));
   var currentSeason = seasonAttribute.get('current');
-  var currentWeather = weatherAttribute.get('current');
   var currentDescription = descriptionAttribute.get('current');
   var maxDay = parseInt(dayAttribute.get('max'));
   var maxMonth = parseInt(monthAttribute.get('max'));
@@ -280,12 +273,12 @@ on('chat:message', function (msg) {
     }
     var newDescription = resolve(weatherTable[currentSeason])
     descriptionAttribute.set('current', newDescription);
-    currentWeather = newDescription;
+    currentDescription = newDescription;
     }
   //log function for debugging in console
   function consoleWeatherLog(whatCalled) {
     log('/==========/ ' + whatCalled + ' was called. /==========/');
-    log(currentWeather + '//' + currentDay + '/' + currentMonth + '/' + currentYear)
+    log(currentSeason + '//' + currentDay + '/' + currentMonth + '/' + currentYear)
   }
   //chat function using default roll template
   function dateWeatherToChat(chatTitle) {
