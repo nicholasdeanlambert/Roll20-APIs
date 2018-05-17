@@ -1,11 +1,13 @@
-/* Welcome to Customizable Calendar. This was inspired (and some sections of
+/* Welcome to CalendarPC, a customizable calendar for Roll20 API.
+ * This was inspired (and some sections of
  * code were lifted in their entiriety) from the 'Basic weather and date script'
  * written by DXWarlock and posted on the Roll20 forums.
  * https://app.roll20.net/forum/post/905530/basic-weather-and-date-script
 
  * Weather tables for Chult are taken from 'Many Faces of Chult' from Bear
- * Digital. I have not implemented a way to switch back and forth to Monsoon...
- * Tables have been modified slightly for wording
+ * Digital. During the rainy season, weather may switch to extreme "monsoon
+ * season." It will switch back when "extreme shift" is rolled again.
+ * Tables have been modified slightly for wording.
  * http://bear-digital.com/random-faces-of-chult/
 
  * The script tracks the current date using a character sheet called
@@ -27,7 +29,7 @@
 */
 
 /*----------Calendar----------*/
-/* Base is the average temperature in Farenheit for that month.
+/* Base is the average temperature in Farenheit for that month (temp not implemented yet)
  * Days is the total number of days in the month. For the Faerûn calendar,
  * all months have 30 days, but I added in festivals between the months.
  * Season should match the seasons in the weather table EXACTLY.
@@ -56,12 +58,17 @@ var monthID = [
   {id: 12, Base: 15, Days: 30, Name: 'Nightal', Season: 'Rainy'}
   //Winter Solstice is on Nightal 20
 ];
+/*----------Leap Year----------*/
+/* put leap year information below
+*/
 //number of years after which a leap year occurs
 var leapYear = 4;
 //id of the month that leap day occurs on
 var leapMonth = 7;
+
 /*----------Holidays----------*/
-/*List any holidays here.
+/*List any holidays here. The name can also include a description of the holiday.
+ * If you have a leap year and want to note it, create a holiday here
 */
 var holidayID = [
   {id: 1, Month: 1, Day: 31, Name: 'Midwinter Festival'},
@@ -286,7 +293,7 @@ on('chat:message', function (msg) {
     } else {
       newDescription = resolve(weatherTable[currentSeason]);
     }
-    //check to see if extreme switch was rolled for weatherTable
+    //check to see if extreme switch was rolled for weatherTable, if so, toggle the toggle and roll on the appropriate season
     while (newDescription === 'extreme shift') {
       extremeToggle = !extremeToggle;
       extremeAttribute.set('current', extremeToggle);
@@ -311,15 +318,18 @@ on('chat:message', function (msg) {
     var checkHolidays = _.findWhere(holidayID, {'Month': currentMonth, 'Day': currentDay});
     //send it all to chat
     if (checkHolidays === undefined) {
+      //no holidays
       sendChat('', '/direct ' + '&{template:default} {{name=' + chatTitle + '}} {{Date=' + fullDate + '}} {{Season=' + currentSeason + '}} {{Weather=' + currentDescription + '}}');
     } else {
+      //yes holidays
       var currentHoliday = checkHolidays.Name;
       sendChat('', '/direct ' + '&{template:default} {{name=' + chatTitle + '}} {{Date=' + fullDate + '}} {{Season=' + currentSeason + '}} {{Holiday=' + currentHoliday + '}} {{Weather=' + currentDescription + '}}');
     }
   }
-  function postToBio() {//post to bio so GM can share the sheet with players if he wants them to see the date.
+  /*RESERVED function postToBio() {//post to bio so GM can share the sheet with players if he wants them to see the date.
 
   }
+  */
   //!currentWeather - send a message to chat with current date and weather
   if (msg.type == 'api' && msgTxt.indexOf ('!currentWeather') !== -1) {
     dateWeatherToChat('Current Weather');
