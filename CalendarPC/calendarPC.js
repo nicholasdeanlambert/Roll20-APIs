@@ -331,13 +331,13 @@ on('chat:message', function (msg) {
   }
   */
   //!currentWeather - send a message to chat with current date and weather
-  if (msg.type == 'api' && msgTxt.indexOf ('!currentWeather') !== -1) {
+  if (msg.type == 'api' && msgTxt.indexOf ('!currentWeather') !== -1 && (playerIsGM(msg.playerid))) {
     dateWeatherToChat('Current Weather');
     consoleWeatherLog('currentWeather');
   }
   //!newDay - roll over to a new day, roll a new weather and post to chat
   //if necessary, roll over a new month, season, and year
-  if (msg.type == 'api' && msgTxt.indexOf ('!newDay') !== -1) {
+  if (msg.type == 'api' && msgTxt.indexOf ('!newDay') !== -1 && (playerIsGM(msg.playerid))) {
     dayAttribute.set('current', currentDay + 1);
     if (currentDay >= maxDay) {//roll over month and reset day to 1
       dayAttribute.set('current', 1);
@@ -365,7 +365,7 @@ on('chat:message', function (msg) {
     consoleWeatherLog('newDay');
   }
   //!newWeather - roll a new weather, post the current date and weather to chat
-  if (msg.type == 'api' && msgTxt.indexOf ('!newWeather') !== -1) {
+  if (msg.type == 'api' && msgTxt.indexOf ('!newWeather') !== -1 && (playerIsGM(msg.playerid))) {
     whatsTheWeather();
     dateWeatherToChat('New Weather Rolling In...');
     consoleWeatherLog('newWeather');
